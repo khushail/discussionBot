@@ -1,18 +1,1 @@
-name: HandleStaleDiscussions
-on:
-  schedule:
-    - cron: '*/5 * * * *'
-  discussion_comment:
-    types: [created]
 
-jobs:
-  handle-stale-discussions:
-    name: Handle stale discussions
-    runs-on: ubuntu-latest
-    permissions:
-      discussions: write
-    steps:
-      - name: Stale discussions action
-        uses: aws-github-ops/handle-stale-discussions@khushail/attentionLabelRemoval
-        env:
-          GITHUB_TOKEN:  ${{secrets.GITHUB_TOKEN}}
